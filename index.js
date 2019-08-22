@@ -19,14 +19,13 @@ function howMany() {
   console.log(dogValue);
 
   if (dogValue > 50){
-    $('ul').html(`Sorry you can only reach a limit of 50 dog images!`)
+    $('ul').html('Sorry you can only reach a limit of 50 dog images!');
   } else {
     for (let i = 0; i < dogValue; i++){
       getDogImage();
-      console.log('this loop is running')
+      console.log('this loop is running');
     }
   }
-
 }
 
 // extract the retrieved data
