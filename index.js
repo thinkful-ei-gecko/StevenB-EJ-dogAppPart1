@@ -1,6 +1,7 @@
 'use strict';
 
 // Retrieve image data
+
 function getDogImage() {
   fetch('https://dog.ceo/api/breeds/image/random')
     .then(response => response.json())
@@ -13,18 +14,29 @@ function displayImage(responseJSON) {
   `);
 }
 
-// extract the retrieved data
-function extractData(){
-  $('form').on('submit', '.submitButton', function(event) {
-    event.preventDefault();
-    howMany();
-    getDogImage();
-  });
-}
-
 function howMany() {
   const dogValue = $('.js-dogAmount').val();
   console.log(dogValue);
+
+  if (dogValue > 50){
+    $('ul').html(`Sorry you can only reach a limit of 50 dog images!`)
+  } else {
+    for (let i = 0; i < dogValue; i++){
+      getDogImage();
+      console.log('this loop is running')
+    }
+  }
+
+}
+
+// extract the retrieved data
+function extractData(){
+  $('form').submit( function(event) {
+    console.log('submit button pressed');
+    event.preventDefault();
+    $('ul').empty();
+    howMany();
+  });
 }
 
 
@@ -34,3 +46,6 @@ function howMany() {
 } */
 
 $(getDogImage);
+$(getDogImage);
+$(getDogImage);
+$(extractData);
